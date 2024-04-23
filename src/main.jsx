@@ -5,10 +5,14 @@ import { Provider } from 'react-redux'
 import { configureStore } from '@reduxjs/toolkit'
 import App from './App'
 import store from './store'
-import anecdoteReducer from './reducers/anecdoteReducer'
 import filterReducer from './reducers/FilterReducer'
+import anecdoteService from './services/anecdotes'
+import anecdoteReducer, { appendAnecdote, setAnecdotes } from './reducers/anecdoteReducer'
 
 
+anecdoteService.getAll().then(anecdotes =>
+  store.dispatch(setAnecdotes(anecdotes))
+)
 
 console.log(store.getState())
 
