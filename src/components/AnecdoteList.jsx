@@ -3,7 +3,7 @@ import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { voteAnecdote } from '../reducers/anecdoteReducer'
 import { setFilter } from '../reducers/FilterReducer'
-import { setNotification, clearNotification } from '../reducers/notificationReducer';
+import { setNotification, clearNotification, setTimedNotification } from '../reducers/notificationReducer';
 import Notification from './Notification';
 
 const AnecdoteList = () => {
@@ -19,10 +19,7 @@ const AnecdoteList = () => {
 
   const vote = (id, content) => {
     dispatch(voteAnecdote(id));
-    dispatch(setNotification(`You voted for "${content}"`));
-    setTimeout(() => {
-      dispatch(clearNotification());
-    }, 5000);
+    dispatch(setTimedNotification({ message: `You voted for "${content}"`, duration: 10 }));
   };
 
   useEffect(() => {
