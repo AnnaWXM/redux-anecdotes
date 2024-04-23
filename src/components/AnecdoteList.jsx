@@ -1,4 +1,4 @@
-// AnecdoteList.jsx
+
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { voteAnecdote } from '../reducers/anecdoteReducer'

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { addAnecdote } from '../reducers/anecdoteReducer'
+import store from '../store'
 
 const AnecdoteForm = () => {
   const dispatch = useDispatch()
